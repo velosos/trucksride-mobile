@@ -8,7 +8,7 @@ import { setDestination } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
 
 const NavCard = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   return (
