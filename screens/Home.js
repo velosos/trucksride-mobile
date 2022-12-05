@@ -1,16 +1,24 @@
 import React from 'react'
-import { Icon } from 'react-native-elements';
 import { Text, View, SafeAreaView, Image } from 'react-native'
+import { Icon } from 'react-native-elements';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import tw from 'tailwind-react-native-classnames'
 import NavOption from '../components/NavOption'
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFavourites from '../components/NavFavourites';
+import { selectOrigin } from '../slices/navSlice';
+import { optionsData, favData } from '../store'
+
 
 const Home = () => {
+
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const origin = useSelector(selectOrigin)
 
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
@@ -54,8 +62,13 @@ const Home = () => {
           nearbyPlacesAPI='GooglePlacesSearch'
           debounce={400}
         />
-        <NavOption />
-        <NavFavourites />
+        <NavOption
+          navigation={navigation}
+          origin={origin}
+          data={optionsData}
+        />
+        <Text style={tw`text-center py-5 text-xl`}>Last rides</Text>
+        <NavFavourites data={favData} />
       </View>
     </SafeAreaView>
   )

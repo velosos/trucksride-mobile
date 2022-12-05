@@ -1,30 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import { Icon } from 'react-native-elements';
-import { useSelector } from 'react-redux';
 import tw from 'tailwind-react-native-classnames'
-import { selectOrigin } from '../slices/navSlice';
 
-
-const data = [
-  {
-    id: "450",
-    title: "Simulate freight",
-    image: "http://atlas-content-cdn.pixelsquid.com/stock-images/delivery-truck-box-Av8vKM7-600.jpg",
-    screen: "RouteMapScreen",
-  },
-  {
-    id: "550",
-    title: "Ride historic",
-    image: "https://www.pngmart.com/files/11/Blank-Package-PNG-Image.png",
-    screen: "HistoryScreen"
-  },
-];
-
-const NavOption = () => {
-  const navigation = useNavigation();
-  const origin = useSelector(selectOrigin)
+const NavOption = ({ navigation, origin, data }) => {
 
   return (
     <FlatList

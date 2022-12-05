@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react'
-import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import { Marker } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
@@ -68,5 +67,3 @@ const Map = ({ origin, destination, apiKey }) => {
 }
 
 export default Map
-
-const styles = StyleSheet.create({})

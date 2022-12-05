@@ -2,23 +2,7 @@ import { FlatList, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'r
 import { Icon } from 'react-native-elements';
 import tw from 'tailwind-react-native-classnames'
 
-const data = [
-  {
-    id: "123",
-    icon: "trending-up-outline",
-    location: "Home",
-    destination: "Code Street, London, IK",
-  },
-  {
-    id: "456",
-    icon: "briefcase",
-    location: "Work",
-    destination: "London Eye, London, UK"
-  },
-];
-
-
-const NavFavourites = () => {
+const NavFavourites = ({ data }) => {
   return (
     <FlatList
       data={data}
@@ -33,8 +17,8 @@ const NavFavourites = () => {
             size={18}
           />
           <View>
-            <Text style={tw`font-semibold text-lg`}>{location}</Text>
-            <Text style={tw`text-gray-500`}>{destination}</Text>
+            <Text style={tw`text-gray-500`}>from: {location}</Text>
+            <Text style={tw`text-gray-500`}>To: {destination}</Text>
           </View>
         </TouchableOpacity>
       )}
